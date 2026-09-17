@@ -212,6 +212,43 @@ const faqs = [
 ];
 
 export default function Home() {
+  const handleConsultationSubmit = (event) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+
+    const fullName = form.fullName.value.trim();
+    const mobile = form.mobile.value.trim();
+    const plotLocation = form.plotLocation.value.trim();
+    const messageText = form.message.value.trim();
+
+    if (!fullName || !mobile || !plotLocation || !messageText) {
+      alert("Please fill in all the required fields.");
+      return;
+    }
+
+    const whatsappNumber = "919885373741";
+
+    const message = `Hello Fortune Properties,
+
+I would like to request a consultation.
+
+Name: ${fullName}
+Mobile Number: ${mobile}
+Plot Location: ${plotLocation}
+
+Requirement / Message:
+${messageText}
+
+Thank you.`;
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <main>
       {/* HEADER */}
@@ -310,9 +347,7 @@ export default function Home() {
               <span className="section-eyebrow">ABOUT US</span>
 
               <h2>
-                <span>Your</span>
-                <span>Dream –</span>
-                <span>Our Goal</span>
+                <span>Your Dream – Our Goal</span>
               </h2>
             </div>
           </div>
@@ -702,7 +737,6 @@ export default function Home() {
         className="section consultation-section"
         id="consultation"
       >
-
         <div className="container consultation-grid">
           <div className="consultation-copy">
             <span className="section-eyebrow">
@@ -741,7 +775,7 @@ export default function Home() {
           <div className="consultation-form-box">
             <h3>Tell Us About Your Requirement</h3>
 
-            <form>
+            <form onSubmit={handleConsultationSubmit}>
               <div className="form-group">
                 <label htmlFor="fullName">
                   Full Name
@@ -749,8 +783,10 @@ export default function Home() {
 
                 <input
                   id="fullName"
+                  name="fullName"
                   type="text"
                   placeholder="Your full name"
+                  required
                 />
               </div>
 
@@ -761,8 +797,13 @@ export default function Home() {
 
                 <input
                   id="mobile"
+                  name="mobile"
                   type="tel"
                   placeholder="Your mobile number"
+                  inputMode="numeric"
+                  pattern="[0-9]{10}"
+                  maxLength={10}
+                  required
                 />
               </div>
 
@@ -773,8 +814,24 @@ export default function Home() {
 
                 <input
                   id="plotLocation"
+                  name="plotLocation"
                   type="text"
                   placeholder="Area / Locality in Visakhapatnam"
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="message">
+                  Message / Requirement
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us about your construction, property, or consultation requirement"
+                  rows={5}
+                  required
                 />
               </div>
 
