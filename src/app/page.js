@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 
 const stats = [
   ["1,00,000+", "Sq. Ft. of Premium Developed Space"],
@@ -170,6 +171,12 @@ const faqs = [
 ];
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMobileMenu = () => {
+    setMenuOpen(false);
+  };
+
   const handleConsultationSubmit = (event) => {
     event.preventDefault();
 
@@ -216,6 +223,7 @@ Thank you.`;
             href="#home"
             className="header-brand-link"
             aria-label="Fortune Properties home"
+            onClick={closeMobileMenu}
           >
             <Image
               src="/images/logo/fortune-properties-logo.png"
@@ -231,18 +239,59 @@ Thank you.`;
             </span>
           </a>
 
-          <nav className="main-nav">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#values">Why Us</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact</a>
+          <nav
+            className={`main-nav ${
+              menuOpen ? "mobile-menu-open" : ""
+            }`}
+          >
+            <a href="#home" onClick={closeMobileMenu}>
+              Home
+            </a>
+
+            <a href="#about" onClick={closeMobileMenu}>
+              About
+            </a>
+
+            <a href="#services" onClick={closeMobileMenu}>
+              Services
+            </a>
+
+            <a href="#values" onClick={closeMobileMenu}>
+              Why Us
+            </a>
+
+            <a href="#testimonials" onClick={closeMobileMenu}>
+              Testimonials
+            </a>
+
+            <a href="#contact" onClick={closeMobileMenu}>
+              Contact
+            </a>
+
+          
           </nav>
 
-          <a href="#consultation" className="header-cta">
+          <a
+            href="#consultation"
+            className="header-cta"
+            onClick={closeMobileMenu}
+          >
             Enquire Now
           </a>
+
+          <button
+            type="button"
+            className={`mobile-menu-toggle ${
+              menuOpen ? "is-open" : ""
+            }`}
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </header>
 

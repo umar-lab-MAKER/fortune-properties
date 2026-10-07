@@ -224,6 +224,58 @@ header {
 }
 
 /* =========================
+   MOBILE MENU TOGGLE
+========================= */
+
+.mobile-menu-toggle {
+  display: none;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--white);
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.mobile-menu-toggle:hover {
+  border-color: var(--gold);
+}
+
+.mobile-menu-toggle:hover span {
+  background: var(--gold);
+}
+
+.mobile-menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================
    HERO
 ========================= */
 
@@ -1246,13 +1298,13 @@ header {
    FAQ - EDITORIAL
 ========================= */
 
-.faq-section {
-  background: var(--white);
-}
-
 .faq-editorial-heading {
   display: block;
   margin-bottom: 55px;
+}
+
+.faq-section {
+  background: var(--white);
 }
 
 .faq-heading {
@@ -1438,7 +1490,6 @@ footer {
   background: var(--navy);
 }
 
-/* Subtle divider so Contact + Footer feel like one section */
 footer::before {
   content: "";
   display: block;
@@ -1605,6 +1656,10 @@ footer::before {
   }
 }
 
+/* =========================================================
+   TABLET / MOBILE NAVIGATION
+========================================================= */
+
 @media (max-width: 900px) {
   header {
     min-height: 76px;
@@ -1624,18 +1679,54 @@ footer::before {
     letter-spacing: 0.8px;
   }
 
+  /* MOBILE NAVIGATION */
   .main-nav {
-    gap: 13px;
-    overflow-x: auto;
-    scrollbar-width: none;
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 18px 5% 22px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin-left: 0;
+    background: var(--navy);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 999;
   }
 
-  .main-nav::-webkit-scrollbar {
-    display: none;
+  .main-nav.mobile-menu-open {
+    display: flex;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 13px 0;
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .main-nav a:last-child {
+    border-bottom: none;
+  }
+
+  .main-nav a:hover {
+    color: var(--gold-light);
   }
 
   .header-cta {
     display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    margin-left: auto;
   }
 
   .section-heading {
@@ -1666,7 +1757,6 @@ footer::before {
   }
 
   /* ABOUT */
-
   .about-heading .section-eyebrow {
     margin-bottom: 14px;
     font-size: 17px;
@@ -1680,7 +1770,6 @@ footer::before {
   }
 
   /* VALUES */
-
   .values-section .section-heading {
     display: block;
   }
@@ -1701,7 +1790,6 @@ footer::before {
   }
 
   /* SERVICES */
-
   .services-layout {
     grid-template-columns: 1fr;
     gap: 45px;
@@ -1726,7 +1814,6 @@ footer::before {
   }
 
   /* PARTNERSHIP */
-
   .partnership-grid {
     grid-template-columns: 1fr;
   }
@@ -1747,14 +1834,12 @@ footer::before {
   }
 
   /* CONSULTATION */
-
   .consultation-grid {
     grid-template-columns: 1fr;
     gap: 45px;
   }
 
   /* FAQ */
-
   .faq-editorial-heading,
   .faq-heading {
     display: block;
@@ -1793,7 +1878,6 @@ footer::before {
   }
 
   /* COMPLETED */
-
   .completed-heading {
     max-width: 100%;
     margin-bottom: 45px;
@@ -1811,7 +1895,6 @@ footer::before {
   }
 
   /* FOOTER */
-
   .footer-inner {
     grid-template-columns: 1fr 1fr;
   }
@@ -1821,6 +1904,10 @@ footer::before {
   }
 }
 
+/* =========================================================
+   MOBILE
+========================================================= */
+
 @media (max-width: 700px) {
   header {
     min-height: 68px;
@@ -1829,11 +1916,12 @@ footer::before {
 
   .header-inner {
     min-height: 68px;
-    gap: 12px;
+    gap: 10px;
   }
 
   .header-brand-link {
     gap: 8px;
+    margin-right: 0;
   }
 
   .header-logo {
@@ -1846,23 +1934,26 @@ footer::before {
     letter-spacing: 0.5px;
   }
 
+  /* MOBILE NAV */
   .main-nav {
-    gap: 15px;
-    margin-left: auto;
+    top: 68px;
   }
 
-  .main-nav a {
-    font-size: 11px;
+  /* HAMBURGER */
+  .mobile-menu-toggle {
+    display: inline-flex;
   }
 
   /* HERO */
-
   .hero-section {
     padding-top: 0;
   }
 
   .hero-image {
     width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
   }
 
   .hero-content {
@@ -1922,7 +2013,6 @@ footer::before {
   }
 
   /* ABOUT */
-
   .about-section {
     padding: 65px 0;
   }
@@ -1953,7 +2043,6 @@ footer::before {
   }
 
   /* COMPLETED PROJECTS */
-
   .completed-heading {
     margin-bottom: 38px;
   }
@@ -1983,7 +2072,6 @@ footer::before {
   }
 
   /* PROPERTY */
-
   .property-card {
     grid-template-columns: 1fr;
   }
@@ -2001,7 +2089,6 @@ footer::before {
   }
 
   /* VALUES */
-
   .values-section .section-heading {
     margin-bottom: 38px;
   }
@@ -2037,7 +2124,6 @@ footer::before {
   }
 
   /* SERVICES */
-
   .services-layout > .section-heading .section-eyebrow,
   .services-heading .section-eyebrow {
     margin-bottom: 12px;
@@ -2058,7 +2144,6 @@ footer::before {
   }
 
   /* PARTNERSHIP */
-
   .partnership-card {
     padding: 50px 6%;
   }
@@ -2076,7 +2161,6 @@ footer::before {
   }
 
   /* CONSULTATION */
-
   .consultation-grid {
     padding-top: 75px;
     padding-bottom: 75px;
@@ -2096,7 +2180,6 @@ footer::before {
   }
 
   /* FAQ */
-
   .faq-editorial-heading,
   .faq-heading {
     margin-bottom: 38px;
@@ -2134,7 +2217,6 @@ footer::before {
   }
 
   /* CONTACT */
-
   .contact-section {
     padding-bottom: 70px;
   }
@@ -2148,7 +2230,6 @@ footer::before {
   }
 
   /* FOOTER */
-
   footer {
     padding: 55px 5% 22px;
   }
@@ -2198,16 +2279,12 @@ footer::before {
     max-width: 90px;
   }
 
-  .main-nav {
-    gap: 12px;
-  }
-
-  .main-nav a {
-    font-size: 10px;
+  .mobile-menu-toggle {
+    width: 40px;
+    height: 40px;
   }
 
   /* HERO */
-
   .hero-section {
     padding-top: 0;
   }
@@ -2239,7 +2316,6 @@ footer::before {
   }
 
   /* FINAL SMALL PHONE HEADING CONTROL */
-
   .about-heading h2,
   .completed-title h2,
   .values-section .section-heading h2,
@@ -2269,7 +2345,6 @@ footer::before {
   }
 
   /* CONTACT + FOOTER */
-
   .contact-section {
     padding-bottom: 60px;
   }
