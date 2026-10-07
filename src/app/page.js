@@ -26,8 +26,7 @@ const ongoingProjects = [
     location: "Gajuwaka",
     type: "Residential",
     configuration: "2 BHK & 3 BHK",
-    area:
-      "1100 / 1155 Sq. Ft. — 2 BHK | 1430 / 1530 Sq. Ft. — 3 BHK",
+    area: "1100 / 1155 Sq. Ft. — 2 BHK | 1430 / 1530 Sq. Ft. — 3 BHK",
     image: "/images/projects/venu-sunshine/brochure.jpg",
   },
   {
@@ -776,7 +775,10 @@ Thank you.`;
       </section>
 
       {/* FAQ */}
-      <section className="section faq-section">
+      <section
+        className="section faq-section"
+        id="faq"
+      >
         <div className="container">
           <div className="faq-heading">
             <div className="faq-label">
@@ -874,15 +876,23 @@ Thank you.`;
       {/* FOOTER */}
       <footer>
         <div className="container footer-inner">
-          <div>
+          <div className="footer-brand">
             <strong>FORTUNE PROPERTIES</strong>
 
             <p>
-              Real Estate • Construction • Property Sales
+              Accelerating Real Estate Sales.
+              <br />
+              Delivering Dream Spaces.
             </p>
+
+            <span>
+              REAL ESTATE • CONSTRUCTION • PROPERTY SALES
+            </span>
           </div>
 
-          <div className="footer-links">
+          <div className="footer-column">
+            <h4>Quick Links</h4>
+
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
@@ -890,10 +900,39 @@ Thank you.`;
             <a href="#contact">Contact</a>
           </div>
 
-          <div className="footer-bottom">
-            © {new Date().getFullYear()} Fortune Properties. All
-            rights reserved.
+          <div className="footer-column">
+            <h4>Explore</h4>
+
+            <a href="#projects">Our Projects</a>
+            <a href="#values">Why Fortune Properties</a>
+            <a href="#consultation">Free Consultation</a>
+            <a href="#faq">FAQs</a>
           </div>
+
+          <div className="footer-column footer-contact">
+            <h4>Get In Touch</h4>
+
+            <p>Visakhapatnam, Andhra Pradesh</p>
+
+            <a href="tel:+919885373741">
+              +91 98853 73741
+            </a>
+
+            <a href="#consultation">
+              Enquire Now →
+            </a>
+          </div>
+        </div>
+
+        <div className="container footer-bottom">
+          <span>
+            © {new Date().getFullYear()} Fortune Properties.
+            All rights reserved.
+          </span>
+
+          <span>
+            Your Dream – Our Goal
+          </span>
         </div>
       </footer>
     </main>
