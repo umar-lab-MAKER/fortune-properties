@@ -132,13 +132,13 @@ section[id] {
 ========================= */
 
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   min-height: 82px;
   padding: 0 5%;
-  z-index: 100;
+  z-index: 1000;
   color: var(--white);
   background: rgba(13, 23, 35, 0.96);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
@@ -229,39 +229,51 @@ header {
 
 .hero-section {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
   overflow: hidden;
-  color: var(--white);
-  background-color: var(--navy);
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(8, 16, 25, 0.9) 0%,
-      rgba(8, 16, 25, 0.7) 45%,
-      rgba(8, 16, 25, 0.35) 100%
-    ),
-    url("/images/hero/fortune-hero.jpg");
-  background-position: center;
-  background-size: cover;
+  padding-top: 0;
+  color: var(--navy);
+  background: var(--white);
+}
+
+.hero-image {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.hero-image img {
+  position: relative !important;
+  width: 100%;
+  height: auto !important;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  padding-top: 110px;
-  padding-bottom: 100px;
+  padding-top: 65px;
+  padding-bottom: 75px;
 }
 
 .hero-copy {
-  max-width: 760px;
+  max-width: 900px;
   min-width: 0;
 }
 
 .hero-eyebrow {
   margin-bottom: 20px;
-  color: var(--gold-light);
+  color: var(--gold);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 3px;
@@ -270,7 +282,7 @@ header {
 
 .hero-brand-name {
   margin: 0 0 18px;
-  color: var(--white);
+  color: var(--navy);
   font-family: "Arial Black", Arial, Helvetica, sans-serif;
   font-size: clamp(32px, 5vw, 60px);
   line-height: 0.98;
@@ -279,9 +291,9 @@ header {
 }
 
 .hero-copy h2 {
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 0 25px;
-  color: var(--white);
+  color: var(--navy);
   font-size: clamp(21px, 3vw, 36px);
   line-height: 1.1;
   letter-spacing: -1px;
@@ -289,9 +301,9 @@ header {
 }
 
 .hero-copy p {
-  max-width: 620px;
+  max-width: 700px;
   margin: 0;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--muted);
   font-size: 17px;
   line-height: 1.8;
 }
@@ -336,14 +348,15 @@ header {
 }
 
 .button-outline {
-  color: var(--white);
-  border-color: rgba(255, 255, 255, 0.55);
+  color: var(--navy);
+  border-color: rgba(13, 23, 35, 0.35);
   background: transparent;
 }
 
 .button-outline:hover {
-  border-color: var(--white);
-  background: rgba(255, 255, 255, 0.08);
+  color: var(--navy);
+  border-color: var(--navy);
+  background: rgba(13, 23, 35, 0.05);
 }
 
 .button-outline-dark {
@@ -359,25 +372,11 @@ header {
 }
 
 .hero-scroll {
-  position: absolute;
-  right: 5%;
-  bottom: 38px;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
+  display: none;
 }
 
 .hero-scroll-line {
-  display: block;
-  width: 48px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.5);
+  display: none;
 }
 
 /* =========================
@@ -897,12 +896,6 @@ header {
   align-items: start;
 }
 
-/*
-  Current page.js uses:
-
-  .services-layout > .section-heading
-*/
-
 .services-layout > .section-heading {
   display: block;
   max-width: 720px;
@@ -934,8 +927,6 @@ header {
   font-size: 15px;
   line-height: 1.8;
 }
-
-/* Keep compatibility if .services-heading exists */
 
 .services-heading {
   max-width: 720px;
@@ -1061,79 +1052,6 @@ header {
 
 .partnership-card-dark p {
   color: rgba(255, 255, 255, 0.64);
-}
-
-/* =========================
-   TEAM
-========================= */
-
-.team-section {
-  background: var(--white);
-}
-
-.team-section .section-heading {
-  display: block;
-  max-width: 850px;
-  margin-bottom: 48px;
-}
-
-.team-section .section-heading .section-eyebrow {
-  display: block;
-  margin-bottom: 18px;
-  font-size: 19px;
-  letter-spacing: 2.8px;
-}
-
-.team-section .section-heading h2 {
-  font-size: clamp(34px, 4.2vw, 54px);
-  line-height: 1.02;
-  letter-spacing: -2px;
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-}
-
-.team-card {
-  overflow: hidden;
-  background: var(--off-white);
-  border: 1px solid var(--border);
-}
-
-.team-image {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
-  background: #e8ebed;
-}
-
-.team-image img {
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.team-card:hover .team-image img {
-  transform: scale(1.04);
-}
-
-.team-content {
-  padding: 22px;
-}
-
-.team-content h3 {
-  margin: 0 0 5px;
-  color: var(--navy);
-  font-size: 18px;
-}
-
-.team-content span {
-  color: var(--gold);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
 }
 
 /* =========================
@@ -1338,10 +1256,6 @@ header {
 /* =========================
    FAQ - EDITORIAL
 ========================= */
-
-/*
-  Current page.js uses .faq-editorial-heading
-*/
 
 .faq-section {
   background: var(--white);
@@ -1915,8 +1829,25 @@ footer {
     font-size: 11px;
   }
 
+  /* HERO */
+
+  .hero-section {
+    padding-top: 68px;
+  }
+
+  .hero-image {
+    height: 42vh;
+    min-height: 280px;
+    max-height: 430px;
+  }
+
   .hero-content {
-    padding-top: 120px;
+    padding-top: 45px;
+    padding-bottom: 55px;
+  }
+
+  .hero-copy {
+    max-width: 100%;
   }
 
   .hero-brand-name {
@@ -2235,6 +2166,23 @@ footer {
 
   .main-nav a {
     font-size: 10px;
+  }
+
+  /* HERO */
+
+  .hero-section {
+    padding-top: 68px;
+  }
+
+  .hero-image {
+    height: 38vh;
+    min-height: 240px;
+    max-height: 340px;
+  }
+
+  .hero-content {
+    padding-top: 38px;
+    padding-bottom: 50px;
   }
 
   .hero-brand-name {

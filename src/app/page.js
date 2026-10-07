@@ -69,15 +69,13 @@ const completedProjects = [
     name: "Fortune Anu Ville",
     location: "Vizag",
     type: "Residential",
-    image:
-      "/images/completed-projects/fortune-anu-ville/brochure.jpg",
+    image: "/images/completed-projects/fortune-anu-ville/brochure.jpg",
   },
   {
     name: "Fortune Galaxy",
     location: "Vizag",
     type: "Residential",
-    image:
-      "/images/completed-projects/fortune-galaxy/brochure.jpg",
+    image: "/images/completed-projects/fortune-galaxy/brochure.jpg",
   },
 ];
 
@@ -87,8 +85,7 @@ const propertyListings = [
     location: "Bharath Nagar, Kurmannapalem",
     type: "Residential Plot",
     area: "352 Sq. Yards",
-    image:
-      "/images/properties/plot-kurmannapalem/brochure.jpg",
+    image: "/images/properties/plot-kurmannapalem/brochure.jpg",
   },
 ];
 
@@ -126,44 +123,6 @@ const values = [
   {
     title: "Commitment",
     text: "We stay committed to our customers and projects from the first conversation through completion.",
-  },
-];
-
-const team = [
-  {
-    name: "Team Member 01",
-    role: "Management",
-    image: "/images/team/team-01.jpg",
-  },
-  {
-    name: "Team Member 02",
-    role: "Operations",
-    image: "/images/team/team-02.jpg",
-  },
-  {
-    name: "Team Member 03",
-    role: "Project Management",
-    image: "/images/team/team-03.jpg",
-  },
-  {
-    name: "Team Member 04",
-    role: "Sales",
-    image: "/images/team/team-04.jpg",
-  },
-  {
-    name: "Team Member 05",
-    role: "Customer Relations",
-    image: "/images/team/team-05.jpg",
-  },
-  {
-    name: "Team Member 06",
-    role: "Business Development",
-    image: "/images/team/team-06.jpg",
-  },
-  {
-    name: "Team Member 07",
-    role: "Support",
-    image: "/images/team/team-07.jpg",
   },
 ];
 
@@ -290,6 +249,16 @@ Thank you.`;
 
       {/* HERO */}
       <section className="hero-section" id="home">
+        <div className="hero-image">
+          <Image
+            src="/images/hero/fortune-hero.jpg"
+            alt="Fortune Properties"
+            fill
+            priority
+            sizes="100vw"
+          />
+        </div>
+
         <div className="container hero-content">
           <div className="hero-copy">
             <div className="hero-eyebrow">
@@ -319,11 +288,6 @@ Thank you.`;
               </a>
             </div>
           </div>
-        </div>
-
-        <div className="hero-scroll">
-          <span>Scroll to explore</span>
-          <span className="hero-scroll-line" />
         </div>
       </section>
 
@@ -651,46 +615,6 @@ Thank you.`;
             >
               Partner With Us
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* TEAM */}
-      <section className="section team-section">
-        <div className="container">
-          <div className="section-heading section-heading-centered">
-            <span className="section-eyebrow">OUR TEAM</span>
-
-            <h2>People Behind the Projects</h2>
-
-            <p>
-              A dedicated team working across management, operations,
-              sales and customer relationships.
-            </p>
-          </div>
-
-          <div className="team-grid">
-            {team.map((member) => (
-              <article
-                className="team-card"
-                key={member.name}
-              >
-                <div className="team-image">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    sizes="(max-width: 700px) 50vw, 20vw"
-                  />
-                </div>
-
-                <div className="team-content">
-                  <h3>{member.name}</h3>
-
-                  <span>{member.role}</span>
-                </div>
-              </article>
-            ))}
           </div>
         </div>
       </section>
