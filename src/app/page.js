@@ -27,7 +27,7 @@ const ongoingProjects = [
     location: "Gajuwaka",
     type: "Residential",
     configuration: "2 BHK & 3 BHK",
-    area: "1100 / 1155 Sq. Ft. — 2 BHK | 1430 / 1530 Sq. Ft. — 3 BHK",
+    area: "1155 Sq. Ft. — 2 BHK | 1430 / 1530 Sq. Ft. — 3 BHK",
     image: "/images/projects/venu-sunshine/brochure.jpg",
   },
   {
@@ -38,14 +38,7 @@ const ongoingProjects = [
     area: "2147 Sq. Ft.",
     image: "/images/projects/venu-manor/brochure.jpg",
   },
-  {
-    name: "Fortune Glaxy",
-    location: "Seethammadhara",
-    type: "Residential",
-    configuration: "3 BHK",
-    area: "1585 Sq. Ft.",
-    image: "/images/projects/fortune-glaxy/brochure.jpg",
-  },
+
   {
     name: "Sriz Vijay Vistas",
     location: "Lawsonsbay Colony",
@@ -71,12 +64,7 @@ const completedProjects = [
     type: "Residential",
     image: "/images/completed-projects/fortune-anu-ville/brochure.jpg",
   },
-  {
-    name: "Fortune Galaxy",
-    location: "Vizag",
-    type: "Residential",
-    image: "/images/completed-projects/fortune-galaxy/brochure.jpg",
-  },
+
 ];
 
 const propertyListings = [
@@ -463,8 +451,8 @@ Thank you.`;
             </span>
 
             <h2>
-              <span>Delivered</span>
-              <span>With</span>
+              <span>Delivered</span>{" "}
+              <span>With</span>{" "}
               <span>Commitment</span>
             </h2>
           </div>
