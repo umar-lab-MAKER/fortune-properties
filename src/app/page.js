@@ -69,7 +69,6 @@ const completedProjects = [
     location: "Vizag",
     type: "Residential",
     image: "/images/completed-projects/fortune-galaxy/brochure.jpg",
-    image: "/images/completed-projects/fortune-galaxy/brochure.jpg",
   },
 ];
 
