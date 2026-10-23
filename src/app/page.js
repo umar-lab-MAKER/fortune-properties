@@ -64,7 +64,12 @@ const completedProjects = [
     type: "Residential",
     image: "/images/completed-projects/fortune-anu-ville/brochure.jpg",
   },
-
+  {
+    name: "Fortune Galaxy",
+    location: "Vizag",
+    type: "Residential",
+    image: "/images/completed-projects/fortune-galaxy/brochure.jpg",
+  },
 ];
 
 const propertyListings = [
